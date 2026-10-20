@@ -1,0 +1,499 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --roxo: #8054df;
+    --rosa: #ff6fae;
+    --amarelo: #ffe66d;
+    --texto: #43315e;
+    --branco: #ffffff;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: var(--texto);
+    background: linear-gradient(135deg, #a8edea, #fed6e3, #fff1a8);
+    min-height: 100vh;
+}
+
+button, input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.04);
+}
+
+button:focus-visible, input:focus-visible {
+    outline: 3px solid #4831a8;
+    outline-offset: 3px;
+}
+
+.game {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 22px;
+    border: 5px solid white;
+    border-radius: 30px;
+    background: #fffaff;
+    box-shadow: 0 12px 35px #65458a30;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.topo h1 {
+    margin: 0;
+    color: #8b42d9;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+.topo p {
+    margin-top: 6px;
+    color: #927ba9;
+}
+
+.moe dinhas {
+    color: #8054df;
+}
+
+.moe dinhas,
+.moedinhas {
+    background: #fff0a8;
+    border-radius: 18px;
+    padding: 12px 16px;
+    font-weight: bold;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+    padding: 12px;
+    background: #f2eaff;
+    border-radius: 16px;
+}
+
+.perfil label {
+    font-weight: bold;
+}
+
+.perfil input {
+    min-width: 0;
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #d7b9ff;
+    border-radius: 10px;
+    background: white;
+}
+
+.perfil button {
+    background: #8054df;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.status {
+    background: white;
+    border: 2px solid #f0e4ff;
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 18px;
+}
+
+.status-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.status h2, .cuidados h2, .ambientes h2 {
+    margin-top: 0;
+    color: #7543bb;
+}
+
+#nivel {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #fff0a8;
+    font-weight: bold;
+}
+
+.barra-item {
+    display: grid;
+    grid-template-columns: 125px minmax(40px, 1fr) 42px;
+    gap: 9px;
+    align-items: center;
+    margin: 12px 0;
+    font-size: 0.9rem;
+}
+
+.barra {
+    height: 14px;
+    overflow: hidden;
+    background: #eee8f5;
+    border-radius: 20px;
+}
+
+.preenchimento {
+    height: 100%;
+    width: 80%;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.fome { background: #ff9f43; }
+.felicidade { background: #ff6fae; }
+.energia { background: #ffd43b; }
+.higiene { background: #38c8d7; }
+.saude { background: #61cc7a; }
+
+.cenario {
+    position: relative;
+    isolation: isolate;
+    height: 340px;
+    overflow: hidden;
+    border: 5px solid white;
+    border-radius: 25px;
+    box-shadow: inset 0 0 0 2px #ffffff70;
+    transition: background 0.4s;
+}
+
+.sala {
+    background: linear-gradient(#a9e8ff 0 60%, #f8d4ae 60%);
+}
+
+.quarto {
+    background: linear-gradient(#c8b6ff 0 60%, #eec8aa 60%);
+}
+
+.cozinha {
+    background: linear-gradient(#fff0a6 0 60%, #f8c6a5 60%);
+}
+
+.banheiro {
+    background: linear-gradient(#b9f3f1 0 60%, #c9e8ff 60%);
+}
+
+.quintal {
+    background: linear-gradient(#8fdbff 0 53%, #85dc78 53%);
+}
+
+.nome-cenario {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    left: 12px;
+    padding: 9px 14px;
+    border-radius: 15px;
+    background: #ffffffdc;
+    font-weight: bold;
+}
+
+.decoracao {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.objeto {
+    position: absolute;
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    filter: drop-shadow(0 4px 2px #00000015);
+}
+
+.objeto1 {
+    left: 7%;
+    bottom: 53px;
+}
+
+.objeto2 {
+    right: 7%;
+    bottom: 47px;
+}
+
+.objeto3 {
+    right: 12%;
+    top: 65px;
+}
+
+.fala {
+    position: absolute;
+    z-index: 3;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: 85%;
+    padding: 10px 15px;
+    border: 2px solid white;
+    border-radius: 18px;
+    background: #ffffffed;
+    color: #7041b3;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 10px #00000012;
+}
+
+.pet {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 45px;
+    transform: translateX(-50%);
+    background: transparent;
+    font-size: clamp(5rem, 15vw, 8rem);
+    filter: drop-shadow(0 8px 3px #00000018);
+    animation: respirar 2s ease-in-out infinite;
+}
+
+.pet:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+.pet.pulando {
+    animation: pular 0.5s ease;
+}
+
+.pet.dormindo {
+    animation: respirar 3s ease-in-out infinite;
+    filter: drop-shadow(0 8px 3px #00000018) brightness(0.85);
+}
+
+.chao {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    background: #ffffff30;
+    border-top: 3px solid #ffffff65;
+}
+
+.cuidados, .ambientes {
+    margin-top: 22px;
+}
+
+.botoes-cuidados, .botoes-ambientes {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.acao {
+    min-height: 90px;
+    padding: 12px 5px;
+    border-radius: 18px;
+    color: #4e326a;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    box-shadow: 0 4px 0 #00000010;
+}
+
+.acao span {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.comida { background: #ffe4a6; }
+.banho { background: #b8f3f0; }
+.brincar { background: #ffd0e5; }
+.dormir { background: #d9d0ff; }
+.carinho { background: #c9f3bb; }
+
+.botoes-ambientes button {
+    padding: 12px 5px;
+    border-radius: 14px;
+    background: #e8dcff;
+    color: #62418f;
+    font-weight: bold;
+}
+
+.botoes-ambientes button.ativo {
+    background: #8054df;
+    color: white;
+    box-shadow: 0 4px 0 #5836a7;
+}
+
+footer {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 14px;
+    border-top: 2px dashed #e4d4f7;
+}
+
+#mensagemFinal {
+    font-weight: bold;
+}
+
+.reiniciar {
+    padding: 11px 18px;
+    background: #ffdeec;
+    color: #9d3268;
+    border-radius: 14px;
+    font-weight: bold;
+}
+
+@keyframes respirar {
+    0%, 100% { margin-bottom: 0; }
+    50% { margin-bottom: 7px; }
+}
+
+@keyframes pular {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    45% { transform: translateX(-50%) translateY(-45px) rotate(-8deg); }
+    70% { transform: translateX(-50%) translateY(-15px) rotate(8deg); }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 8px;
+    }
+
+    .game {
+        padding: 13px;
+        border-width: 3px;
+    }
+
+    .barra-item {
+        grid-template-columns: 105px minmax(30px, 1fr) 36px;
+        gap: 5px;
+        font-size: 0.78rem;
+    }
+
+    .cenario {
+        height: 300px;
+    }
+
+    .botoes-cuidados {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .botoes-ambientes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Camada de objetos interativos */
+.decoracao {
+    pointer-events: none;
+    z-index: 4;
+}
+
+.objeto {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 3px solid transparent;
+    border-radius: 18px;
+    background: #ffffff38;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s,
+                border-color 0.2s;
+    animation: aparecer 0.4s ease;
+}
+
+.objeto:hover {
+    transform: scale(1.18) rotate(-4deg);
+    background: #ffffffc9;
+    border-color: white;
+}
+
+.objeto:active {
+    transform: scale(0.9);
+}
+
+.objeto:focus-visible {
+    outline: 3px solid #8054df;
+    outline-offset: 3px;
+}
+
+.objeto1 {
+    left: 6%;
+    bottom: 55px;
+}
+
+.objeto2 {
+    right: 6%;
+    bottom: 50px;
+}
+
+.objeto3 {
+    left: 42%;
+    top: 36%;
+}
+
+.pet {
+    z-index: 2;
+    transition: left 0.5s ease, top 0.5s ease;
+    touch-action: manipulation;
+}
+
+.cenario {
+    cursor: crosshair;
+}
+
+.nome-cenario,
+.fala {
+    cursor: default;
+}
+
+.nome-cenario {
+    z-index: 5;
+}
+
+.fala {
+    z-index: 5;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        scale: 0.6;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .objeto {
+        animation: none;
+    }
+}

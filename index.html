@@ -1,0 +1,120 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Bichinho Virtual</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="game">
+        <header class="topo">
+            <div>
+                <h1>🐾 Meu Bichinho</h1>
+                <p>Um mundinho cheio de carinho!</p>
+            </div>
+            <div class="moedinhas">⭐ <span id="moedas">0</span></div>
+        </header>
+
+        <section class="perfil">
+            <label for="nomePet">Nome do seu pet:</label>
+            <input id="nomePet" type="text" maxlength="16"
+                   placeholder="Digite um nome">
+            <button id="salvarNome">OK</button>
+        </section>
+
+        <section class="status">
+            <div class="status-titulo">
+                <h2 id="nomeTitulo">Meu Bichinho</h2>
+                <span id="nivel">Nível 1</span>
+            </div>
+
+            <div class="barra-item">
+                <span>🍎 Barriguinha</span>
+                <div class="barra"><div id="fomeBarra" class="preenchimento fome"></div></div>
+                <span id="fomeValor">80%</span>
+            </div>
+
+            <div class="barra-item">
+                <span>💖 Felicidade</span>
+                <div class="barra"><div id="felicidadeBarra" class="preenchimento felicidade"></div></div>
+                <span id="felicidadeValor">80%</span>
+            </div>
+
+            <div class="barra-item">
+                <span>⚡ Energia</span>
+                <div class="barra"><div id="energiaBarra" class="preenchimento energia"></div></div>
+                <span id="energiaValor">80%</span>
+            </div>
+
+            <div class="barra-item">
+                <span>🧼 Higiene</span>
+                <div class="barra"><div id="higieneBarra" class="preenchimento higiene"></div></div>
+                <span id="higieneValor">80%</span>
+            </div>
+
+            <div class="barra-item">
+                <span>❤️ Saúde</span>
+                <div class="barra"><div id="saudeBarra" class="preenchimento saude"></div></div>
+                <span id="saudeValor">100%</span>
+            </div>
+        </section>
+
+        <section id="cenario" class="cenario sala">
+            <div class="nome-cenario" id="nomeCenario">🛋️ Sala de estar</div>
+
+            <div class="decoracao" id="decoracao" aria-hidden="true">
+                <span class="objeto objeto1">🪴</span>
+                <span class="objeto objeto2">🛋️</span>
+                <span class="objeto objeto3">🖼️</span>
+            </div>
+
+            <div class="fala" id="fala" aria-live="polite">
+                Oi! Vamos brincar? 💕
+            </div>
+
+            <button id="pet" class="pet" aria-label="Fazer carinho no bichinho">
+                🐱
+            </button>
+
+            <div class="chao"></div>
+        </section>
+
+        <section class="cuidados">
+            <h2>Como vamos cuidar? 💕</h2>
+            <div class="botoes-cuidados">
+                <button id="alimentar" class="acao comida">
+                    🍎<span>Alimentar</span>
+                </button>
+                <button id="darBanho" class="acao banho">
+                    🛁<span>Dar banho</span>
+                </button>
+                <button id="brincar" class="acao brincar">
+                    🧸<span>Brincar</span>
+                </button>
+                <button id="dormir" class="acao dormir">
+                    🌙<span>Dormir</span>
+                </button>
+                <button id="carinho" class="acao carinho">
+                    🥰<span>Carinho</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="ambientes">
+            <h2>Escolha um ambiente 🏡</h2>
+            <div class="botoes-ambientes">
+                <button data-room="sala">🛋️ Sala</button>
+                <button data-room="quarto">🛏️ Quarto</button>
+                <button data-room="cozinha">🍳 Cozinha</button>
+                <button data-room="banheiro">🛁 Banheiro</button>
+                <button data-room="quintal">🌳 Quintal</button>
+            </div>
+        </section>
+
+        <footer>
+            <p id="mensagemFinal">Cuide bem do seu amiguinho! 🐾</p>
+            <button id="reiniciar" class="reiniciar">🔄 Recomeçar jogo</button>
+        </footer>
+    </main>
+</body>
+</html>
